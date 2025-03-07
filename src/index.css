@@ -1,127 +1,275 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  box-sizing:content-box;
+  box-sizing: border-box;
 }
 
-.heading{
-background-color: rgb(255, 227, 104);
-display: flex;
-margin-bottom: 20px;
-margin-top: 5px;
+/* Header */
+.heading {
+  background-color: rgb(255, 227, 104);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items in a row */
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  flex-wrap: nowrap; /* Prevent wrapping */
 }
 
-img{
-  margin: 0 20px;
+/* Logo */
+.heading img {
+  margin-right: 10px; /* Space between logo and title */
+  width: 50px;
+  height: auto;
 }
 
-.footer{
+/* Title */
+.heading-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap; /* Prevent title from breaking */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .heading {
+    /* justify-content: flex-start; */
+    padding: 8px;
+    /* display: inline-flex; */
+  }
+
+  .heading img {
+    width: 35px; /* Slightly smaller for mobile */
+  }
+
+  .heading-title {
+    font-size: 1.1rem;
+  }
+}
+
+
+/* Footer */
+.footer {
   text-align: center;
-  position:fixed;
+  position: fixed;
   width: 100%;
   bottom: 0;
-} 
+  background: #f1f1f1;
+  padding: 10px;
+}
 
-.main_note{
-  width: 75vb;
+/* Main Note Section */
+.main_note {
+  width: 75vw;
+  max-width: 600px;
   border-radius: 7px;
   margin: 10px auto;
   box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
 }
 
-form{
-min-height: 30px;
-padding: 5px; 
-color: #ecf0f1;
-position: relative;
+/* Form */
+form {
+  min-height: 30px;
+  padding: 10px;
+  position: relative;
 }
 
-input{
+/* Input & Textarea */
+input,
+textarea {
   width: 100%;
-  line-height: 30px;
   background: transparent;
   border: none;
   outline: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin: 10px 0;
-font-weight: bold;
+  padding: 5px;
 }
 
-textarea{
-  width: 100%;
-  line-height: 30px;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  margin: 10px 0;
-}
-
-.MuiButton-root{
-  width: 30px;
-  height: 50px;
+/* Button */
+.MuiButton-root {
+  width: 40px;
+  height: 40px;
   position: absolute;
-  bottom: -28px;
-  left: 400px;
+  bottom: -10px;
+  right: -500px;
   cursor: pointer;
   background-color: #fff !important;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.plus_sign{
-  font-size: 45px !important;
+
+/* Tablet screens */
+@media (max-width: 1024px) {
+  .MuiButton-root {
+    right: -490px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .MuiButton-root {
+    width: 35px;
+    height: 35px;
+    right: 345px;
+    bottom: -8px;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  .MuiButton-root {
+    width: 30px;
+    height: 30px;
+    right: 315px; /* Brings the button closer */
+    bottom: -5px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .MuiButton-root {
+    width: 28px;
+    height: 28px;
+    right: -142px;
+    bottom: -5px;
+  }
+}
+
+/* Plus Sign */
+.plus_sign {
+  font-size: 35px !important;
   font-weight: 900;
-  color:  #f4b400;
+  color: #f4b400;
   cursor: pointer;
-  z-index: 222;
   background: transparent;
 }
 
- .plus_sign:hover{
-  background: transparent;
+.plus_sign:hover {
   color: rgb(18, 161, 18);
 }
 
-.note{ 
-  float: left;
+/* Note Cards */
+.note {
+  display: inline-block;
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
   width: 240px;
-  margin:16px ;
-  padding: 10px; 
+  margin: 16px;
+  padding: 10px;
+  transition: 0.3s ease-in-out;
 }
-.note h1{
+
+.note h1 {
   font-size: 1.2em;
   margin-bottom: 6px;
   word-wrap: break-word;
 }
-.note p{
-font-size: 1.1em;
-margin-bottom: 10px;
-white-space: pre-wrap;
-word-wrap: break-word;
+
+.note p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
-.note .btn{
+/* Delete Button */
+.note .btn {
   position: relative;
   float: right;
   margin-right: 10px;
   color: #f4b400;
   border: none;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: transparent;
   cursor: pointer;
   outline: none;
-  box-shadow: 3px 3px 15px -10px rgba(0, 0, 0, 0);
   border-radius: 50%;
 }
 
-.deleteIcon{
-  width: 0.7em;
-  height: 0.7em;
+.note .btn:hover .deleteIcon {
+  color: #e77000;
 }
 
-.note .btn:hover .deleteIcon{
-  color: #e77000;
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main_note {
+    width: 90vw;
+    max-width: 500px;
+  }
+
+  .note {
+    width: 90%;
+    margin: 10px 20px;
+  }
+
+  .MuiButton-root {
+    bottom: -10px;
+    right: -390px;
+  }
+
+  .plus_sign {
+    font-size: 30px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .heading {
+    flex-direction: row;
+    text-align: center;
+  }
+
+  .main_note {
+    width: 90vw;
+    max-width: 400px;
+  }
+
+  .note {
+    width: 80%;
+    margin: 10px 20px;
+  }
+
+  .MuiButton-root {
+    width: 35px;
+    height: 35px;
+    bottom: -10px;
+    right: -285px;
+  }
+
+  .plus_sign {
+    font-size: 25px !important;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .heading {
+    flex-direction: row;
+    text-align: center;
+  }
+
+  .main_note {
+    width: 90vw;
+    max-width: 400px;
+  }
+
+  .note {
+    width: 80%;
+    margin: 10px 20px;
+  }
+
+  .MuiButton-root {
+    width: 35px;
+    height: 35px;
+    bottom: -10px;
+    right: -225px;
+  }
+
+  .plus_sign {
+    font-size: 25px !important;
+  }
 }
